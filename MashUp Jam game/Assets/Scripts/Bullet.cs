@@ -15,7 +15,16 @@ public class Bullet : MonoBehaviour
 
         _rigidbody2D.velocity = transform.right * speed;
     }
-    
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Enemy _enemy = other.collider.GetComponent<Enemy>();
+        if (_enemy != null)
+        {
+            _enemy.HealthUp();
+        }
+        Destroy(gameObject);
+    }
 
     // Update is called once per frame
     void Update()

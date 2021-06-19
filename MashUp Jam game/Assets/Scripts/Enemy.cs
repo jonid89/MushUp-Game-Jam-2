@@ -7,24 +7,54 @@ public class Enemy : MonoBehaviour
 {
     
     [SerializeField] private float speed = 2f;
-    private Vector3 _playerTransformPosition;
-    private Vector3 _transformPosition;
+    [SerializeField] private float _scaleStart = 3f;
+    [SerializeField] private float _scaleLimit = 0.5f;
+    [SerializeField] private float _shrinkRate = 0.1f;
+    [SerializeField] private float _projectileHealth = 2f;
+    private float _scale;
+    
+
+    private Transform _playerTransform;
+    private Transform _enemyTransform;
+    private Rigidbody2D _rb;
+
+    
 
     private void Awake()
     {
-        _playerTransformPosition = GameObject.Find("Player").transform.position;
+        _playerTransform = GameObject.Find("Player").transform;
     }
 
     void Start()
     {
-        _transformPosition = transform.position;
+        _enemyTransform = this.transform;
+        _rb = this.GetComponent<Rigidbody2D>();
+        
+        _scale = _scaleStart;
+        transform.localScale = new Vector3(_scale, _scale, 1f);
     }
 
 
-
-    void Update()
+    private void FixedUpdate()
     {
-        transform.LookAt(_playerTransformPosition);
-        Vector2.MoveTowards(_transformPosition, _playerTransformPosition, speed * Time.deltaTime);
+        //direction
+        transform.right = _playerTransform.position - _enemyTransform.position;
+        
+        //movement
+        transform.position = Vector3.MoveTowards(_enemyTransform.position, _playerTransform.position, speed * Time.fixedDeltaTime);
+
+        //scaling down
+        _scale -= _shrinkRate * Time.fixedDeltaTime;
+        if (_scale > _scaleLimit) transform.localScale = new Vector3(_scale, _scale, 1f);
+        else Destroy(this.gameObject);
+
+
     }
+
+    public void HealthUp()
+    {
+        _scale += _projectileHealth;
+    }
+
+
 }
