@@ -539,7 +539,7 @@ MonoBehaviour:
   force: 100
   moveSpeed: 3
   turnSpeed: 100
-  fireTimer: 3
+  shootDelay: 3
   front: {fileID: 1117894545}
   projectilePrefab: {fileID: 3283537490706200277, guid: c494f22001e2cb54bb1ca235adfcf9d0, type: 3}
   forward: 273

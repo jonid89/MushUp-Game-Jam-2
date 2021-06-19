@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public float force = 100;
     public float moveSpeed = 3f;
     public float turnSpeed = 100f;
-    public float fireTimer = 3;
+    public float shootDelay = 3f;
 
     public GameObject front;
     public GameObject projectilePrefab;
@@ -21,11 +21,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private Vector2 lookDir;
-
+    private float shootTimer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        shootTimer = shootDelay;
     }
     
     
@@ -63,23 +64,23 @@ public class Player : MonoBehaviour
         }
 
         //firing delay
-        fireTimer -= Time.deltaTime;
-        if (Input.GetKeyDown(fire) && fireTimer < 0)
+        shootTimer -= Time.deltaTime;
+        Debug.Log(shootTimer);
+        if (Input.GetKeyDown(fire) && shootTimer < 0)
         {
+            shootTimer = shootDelay;
             Launch();
-            fireTimer = 2f;
+
         }
 
     }
 
     void Launch()
     {
-        GameObject projectile = Instantiate(projectilePrefab, front.transform.position, transform.rotation);
+        GameObject projectileObj = Instantiate(projectilePrefab, front.transform.position, transform.rotation);
 
-        /*Projectile projectileScript = projectile.gameObject.GetComponent<Projectile>();
-        projectileScript.Launch(lookDir, force);*/
-
-        projectile.gameObject.GetComponent<Projectile>().Launch(lookDir, force);
+        Projectile projectile = projectileObj.GetComponent<Projectile>();
+        projectile.Launch(lookDir, force);
 
     }
 
