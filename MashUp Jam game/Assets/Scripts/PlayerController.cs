@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var movementNormalized = _movementInput.normalized * (movementSpeed * Time.deltaTime);
+        var movementNormalized = _movementInput.normalized * (movementSpeed * Time.fixedDeltaTime);
         _rigidbody2D.MovePosition(_rigidbody2D.position + movementNormalized);
     }
 }
