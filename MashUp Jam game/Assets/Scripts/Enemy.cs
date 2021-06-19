@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject player;
+    public float speed = 2f;
+
+    private Transform playerTr;
+    
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
-        
+        transform.LookAt(playerTr);
+
+        transform.position += transform.forward * speed * Time.deltaTime;
+
     }
 }
