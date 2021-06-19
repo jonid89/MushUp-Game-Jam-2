@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
 
         //firing delay
         shootTimer -= Time.deltaTime;
-        Debug.Log(shootTimer);
         if (Input.GetKeyDown(fire) && shootTimer < 0)
         {
             shootTimer = shootDelay;
