@@ -17,12 +17,12 @@ public class Projectile :  MonoBehaviour
 
     void Update()
     {
-        If (transform.position.magnitude > 100.0F) Destroy(gameObject);
+        if(transform.position.magnitude > 100.0F) Destroy(gameObject);
     }
     
 
 
-    Public void Launch(Vector2 direction, float force)
+    public void Launch(Vector2 direction, float force)
     {
         rigidbody2d.AddForce(direction * force);
     }

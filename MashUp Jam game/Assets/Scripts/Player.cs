@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     
-
     
     void Update()
     {
@@ -75,11 +74,12 @@ public class Player : MonoBehaviour
 
     void Launch()
     {
-        GameObject projectile = Instantiate(projectilePrefab, front.transform.position, transform.rotation * UnityEngine.Quaternion.Euler(0, 0, 90));
+        GameObject projectile = Instantiate(projectilePrefab, front.transform.position, transform.rotation);
 
-        Projectile projectileScript = projectile.gameObject.GetComponent<Projectile>();
-        projectileScript.Launch(lookDir, force);
-       
+        /*Projectile projectileScript = projectile.gameObject.GetComponent<Projectile>();
+        projectileScript.Launch(lookDir, force);*/
+
+        projectile.gameObject.GetComponent<Projectile>().Launch(lookDir, force);
 
     }
 
