@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        
+        tr
     }
 
 
