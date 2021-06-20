@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
@@ -16,7 +17,7 @@ public class Bullet : MonoBehaviour
 
         _rigidbody2D.velocity = transform.right * speed;
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -29,6 +30,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Collided with player");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/shot_player");
             other.GetComponent<ShootingController>().EnableShooting();
             Destroy(gameObject);
         }

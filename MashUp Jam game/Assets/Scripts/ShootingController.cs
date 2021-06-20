@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class ShootingController : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class ShootingController : MonoBehaviour
     {
         if (!_canShoot) return;
         Instantiate(bullet, projectileOriginTransform.position, projectileOriginTransform.rotation);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/shot");
         _canShoot = false;
     }
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5609661030110042401}
   - component: {fileID: 5609661030110042400}
   - component: {fileID: 509931489748592684}
+  - component: {fileID: 6502166962018174867}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -199,6 +200,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &6502166962018174867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5609661030110042415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/bounce
+  PlayEvent: 9
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &5609661030820149965
 GameObject:
   m_ObjectHideFlags: 0
