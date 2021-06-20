@@ -35,3 +35,12 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+<<<<<<< Updated upstream
+=======
+MashUp Jam game/Assets/Scripts/archive/Player.cs
+MashUp Jam game/Assets/Scripts/archive/Player.cs.meta
+MashUp Jam game/Assets/Scripts/archive/Projectile.cs
+MashUp Jam game/Assets/Scripts/archive/Projectile.cs.meta
+MashUp Jam game/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+MashUp Jam game/Logs/AssetImportWorker0.log
+>>>>>>> Stashed changes
