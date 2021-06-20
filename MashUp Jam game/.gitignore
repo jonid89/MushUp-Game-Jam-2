@@ -35,3 +35,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+MashUp Jam game/Assets/Scripts/archive/Player.cs
+MashUp Jam game/Assets/Scripts/archive/Player.cs.meta
+MashUp Jam game/Assets/Scripts/archive/Projectile.cs
+MashUp Jam game/Assets/Scripts/archive/Projectile.cs.meta
