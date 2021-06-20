@@ -7,6 +7,7 @@ public class ShootingController : MonoBehaviour
 {
     [SerializeField] private Transform projectileOriginTransform;
     [SerializeField] private GameObject bullet;
+    private bool _canShoot = true;
     
     private Camera _mainCamera;
     void Start()
@@ -25,6 +26,10 @@ public class ShootingController : MonoBehaviour
 
     public void Shoot()
     {
+        if (!_canShoot) return;
         Instantiate(bullet, projectileOriginTransform.position, projectileOriginTransform.rotation);
+        _canShoot = false;
     }
+
+    public void EnableShooting() => _canShoot = true;
 }
