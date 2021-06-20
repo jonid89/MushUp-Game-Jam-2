@@ -7,24 +7,24 @@ public class Enemy : MonoBehaviour
 {
     
     [SerializeField] private float speed = 2f;
-    private Vector3 _playerTransformPosition;
-    private Vector3 _transformPosition;
+    private Transform _playerTransform;
+    private Transform _transform;
 
     private void Awake()
     {
-        _playerTransformPosition = GameObject.Find("Player").transform.position;
+        _playerTransform = GameObject.Find("Player").transform;
     }
 
     void Start()
     {
-        _transformPosition = transform.position;
+        _transform = this.transform;
     }
 
 
 
     void Update()
     {
-        transform.LookAt(_playerTransformPosition);
-        Vector2.MoveTowards(_transformPosition, _playerTransformPosition, speed * Time.deltaTime);
+        transform.right = _playerTransform.position - _transform.position;
+        Vector2.MoveTowards(_transform.position, _playerTransform.position, speed * Time.deltaTime);
     }
 }
