@@ -39,6 +39,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Collided with Enemy");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/enemy_hit");
             other.GetComponent<Enemy>().HealthUp();
             _player = GameObject.Find("Player");
             _player.GetComponent<ShootingController>().EnableShooting();
