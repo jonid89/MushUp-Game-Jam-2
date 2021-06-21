@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6396969907136890176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy_hit
+  m_EditorClassIdentifier: 
+  Path: event:/enemy_hit
+  guid: 83c04f47f8560d48b4532c7fb62a6b90
+  Banks:
+  - {fileID: 879209629353485227}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 410
 --- !u!114 &-6105318420911946511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,11 +38,11 @@ MonoBehaviour:
   Path: FMOD/MashUp fmod project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637598688517392305
+  lastModified: 637598927414689097
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 890
+    Value: 1052
   Exists: 1
 --- !u!114 &-5895167033347383805
 MonoBehaviour:
@@ -87,13 +110,40 @@ MonoBehaviour:
   - {fileID: 4907229076946823581}
   - {fileID: -1531061983205550708}
   - {fileID: -5895167033347383805}
+  - {fileID: 1374462527817697994}
+  - {fileID: -6396969907136890176}
+  - {fileID: 493835238228507}
+  - {fileID: 5481558700156580092}
   EditorParameters: []
   MasterBanks:
   - {fileID: 879209629353485227}
   StringsBanks:
   - {fileID: -6105318420911946511}
-  stringsBankWriteTime: 637598688517392305
+  stringsBankWriteTime: 637598927414689097
   cacheVersion: 8
+--- !u!114 &493835238228507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/new_wave
+  m_EditorClassIdentifier: 
+  Path: event:/new_wave
+  guid: ad28e10c4305c24fb8bfebddd58407e4
+  Banks:
+  - {fileID: 879209629353485227}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2937
 --- !u!114 &879209629353485227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,12 +159,35 @@ MonoBehaviour:
   Path: FMOD/MashUp fmod project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637598688517352318
+  lastModified: 637598927414389704
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1012320
+    Value: 1114624
   Exists: 1
+--- !u!114 &1374462527817697994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/game_over
+  m_EditorClassIdentifier: 
+  Path: event:/game_over
+  guid: 346c52dd74227b419296c4b3c873925e
+  Banks:
+  - {fileID: 879209629353485227}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8000
 --- !u!114 &2893822470664986148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +234,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &5481558700156580092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/loose_health
+  m_EditorClassIdentifier: 
+  Path: event:/loose_health
+  guid: fe8d1c80c16db340add5232d07105e4d
+  Banks:
+  - {fileID: 879209629353485227}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 480
