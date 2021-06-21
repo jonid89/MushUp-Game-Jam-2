@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveAnnouncer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] Text _waveText;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
     }
+
+
+    public void SetWaveNumber(int _wave)
+    {
+        _waveText.text = "Next Wave #" + _wave.ToString();
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeOut()
+    {
+        yield return new WaitForSeconds(1.5f);
+        this.gameObject.SetActive(false);
+    }
+
 }

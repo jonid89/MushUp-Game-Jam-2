@@ -8,8 +8,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int _waveNumber = 1;
     [SerializeField] private int _enemiesPerWave = 5;
     [SerializeField] private float _enemySpawnRate = 2f;
-    [SerializeField] GameObject _enemyPrefab;
-    [SerializeField] GameObject _waveAnnouncer;
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _waveAnnouncer;
 
     private int _enemiesToSpawn;
     private Vector2 _spawnPosition;
@@ -54,6 +54,7 @@ public class WaveSpawner : MonoBehaviour
     {
         _waveNumber++;
         _waveAnnouncer.gameObject.SetActive(true);
+        _waveAnnouncer.GetComponent<WaveAnnouncer>().SetWaveNumber(_waveNumber);
         StartCoroutine(SpawnEnemies());
     }
 
