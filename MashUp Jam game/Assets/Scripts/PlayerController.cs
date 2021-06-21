@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _lives;
@@ -14,8 +15,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _movementInput;
     private int _health = 3;
-    private float _invincibleTimer;
-    private bool _invincible = true;
+    private float _invincibleTimer = 0;
+    private bool _invincible = false;
 
     private Rigidbody2D _rigidbody2D;
 
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogError($"Couldn't find shooting controller on {gameObject}");
 
         _health = 3;
+        _invincible = false;
     }
 
 
@@ -35,7 +37,14 @@ public class PlayerController : MonoBehaviour
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if(Input.GetMouseButtonDown(0))
             _shootingController.Shoot();
-        
+
+        Debug.Log("Invincible timer: " + _invincibleTimer);
+        if (_invincible)
+        {
+            _invincibleTimer -= Time.deltaTime;
+            if (_invincibleTimer < 0)
+                _invincible = false;
+        }
     }
 
     void FixedUpdate()
@@ -44,13 +53,6 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D.MovePosition(_rigidbody2D.position + movementNormalized);
 
 
-        if (_invincible)
-        {
-            _invincibleTimer -= Time.fixedDeltaTime;
-            if (_invincibleTimer < 0)
-                _invincible = false;
-        }
-        Debug.Log(_invincibleTimer);
     }
 
 
@@ -63,15 +65,22 @@ public class PlayerController : MonoBehaviour
     {
         if (_invincible)
             return;
-
-        _invincibleTimer = _noDamageTime;
-        _health = _health - 1;
-        _lives.GetComponent<Lives>().Damaged();
-
-        if (_health == 0)
+        else
         {
-            _gameOver.SetActive(true);
-            Destroy(this.gameObject);
+            _invincibleTimer = _noDamageTime;
+            _health = _health - 1;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/loose_health"); 
+           _invincible = true;
+            _lives.GetComponent<Lives>().Damaged();
+
+            Debug.Log("Health: "+_health);
+
+            if (_health == 0)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/game_over");
+                _gameOver.SetActive(true);
+                Destroy(this.gameObject);
+            }
         }
     }
 
