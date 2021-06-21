@@ -55,6 +55,7 @@ public class WaveSpawner : MonoBehaviour
         _waveNumber++;
         _waveAnnouncer.gameObject.SetActive(true);
         _waveAnnouncer.GetComponent<WaveAnnouncer>().SetWaveNumber(_waveNumber);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/new_wave");
         StartCoroutine(SpawnEnemies());
     }
 
