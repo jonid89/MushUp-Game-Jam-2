@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+/.idea.MashUp Jam game.iml
+# Datasource local storage ignored files
+/../../../../../../../:\Game Jam Repos\MushUp-Game-Jam-2\MashUp Jam game\.idea\.idea.MashUp Jam game\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
