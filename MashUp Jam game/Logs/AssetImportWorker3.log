@@ -97,3 +97,11 @@ Received Import Request.
 Start importing Assets/Scenes/AzizScene.unity using Guid(5721b098f0bea6d4e9270380cbf9f211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7967cca26350e6439ff67e1203e2311b') in 0.023862 seconds 
   Import took 0.041206 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 2314.290567 seconds.
+  path: Assets/Scenes/Maps.unity
+  artifactKey: Guid(226b457359bfa8e44bb7c41c1575f557) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps.unity using Guid(226b457359bfa8e44bb7c41c1575f557) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27c3d5fbde988dbbdf06444809e0decd') in 0.016245 seconds 
+  Import took 0.046689 seconds .
+
