@@ -9,14 +9,15 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int _enemiesPerWave = 5;
     [SerializeField] private float _enemySpawnRate = 2f;
     [SerializeField] GameObject _enemyPrefab;
+    [SerializeField] GameObject _waveAnnouncer;
 
     private int _enemiesToSpawn;
     private Vector2 _spawnPosition;
+    private bool _allSpawned = false;
+    private GameObject _enemyFound;
 
     void Start()
     {
-        _enemiesToSpawn = _enemiesPerWave * _waveNumber;
-
         StartCoroutine(SpawnEnemies());
     }
 
@@ -25,12 +26,16 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         
+        if (_allSpawned) _enemyFound = GameObject.Find("Enemy(Clone)");
+        if (_allSpawned & _enemyFound == null) { _allSpawned = false; WaveCompleted(); }
+
     }
 
 
     IEnumerator SpawnEnemies()
     {
         //yield return new WaitUntil(() => movement.x > 0);
+        _enemiesToSpawn = _enemiesPerWave * _waveNumber;
 
         for (int i = 1; i <= _enemiesToSpawn; i++) {
             
@@ -40,8 +45,17 @@ public class WaveSpawner : MonoBehaviour
 
             Instantiate(_enemyPrefab, _spawnPosition, Quaternion.identity);
 
+            if (i == _enemiesToSpawn) _allSpawned = true;
         }
 
     }
+
+    private void WaveCompleted()
+    {
+        _waveNumber++;
+        _waveAnnouncer.gameObject.SetActive(true);
+        StartCoroutine(SpawnEnemies());
+    }
+
 
 }

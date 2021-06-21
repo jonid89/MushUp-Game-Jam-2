@@ -7,9 +7,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
+    private GameObject _player;
 
     [SerializeField] private float speed = 15f;
-    // Start is called before the first frame update
+  
+
     void Start()
     {
         if(!TryGetComponent(out _rigidbody2D))
@@ -19,7 +21,6 @@ public class Bullet : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -34,6 +35,15 @@ public class Bullet : MonoBehaviour
             other.GetComponent<ShootingController>().EnableShooting();
             Destroy(gameObject);
         }
-        
+
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Collided with Enemy");
+            other.GetComponent<Enemy>().HealthUp();
+            _player = GameObject.Find("Player");
+            _player.GetComponent<ShootingController>().EnableShooting();
+            Destroy(gameObject);
+        }
+
     }
 }

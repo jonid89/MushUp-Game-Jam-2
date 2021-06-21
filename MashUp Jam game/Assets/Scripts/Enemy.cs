@@ -16,10 +16,8 @@ public class Enemy : MonoBehaviour
 
     private Transform _playerTransform;
     private Transform _enemyTransform;
-    private Rigidbody2D _rb;
-
+   
     
-
     private void Awake()
     {
         _playerTransform = GameObject.Find("Player").transform;
@@ -28,7 +26,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _enemyTransform = this.transform;
-        _rb = this.GetComponent<Rigidbody2D>();
         
         _scale = _scaleStart;
         transform.localScale = new Vector3(_scale, _scale, 1f);
