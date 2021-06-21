@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Collided with player");
+
             FMODUnity.RuntimeManager.PlayOneShot("event:/shot_player");
             other.GetComponent<ShootingController>().EnableShooting();
             Destroy(gameObject);
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Collided with Enemy");
+
             FMODUnity.RuntimeManager.PlayOneShot("event:/enemy_hit");
             other.GetComponent<Enemy>().HealthUp();
             _player = GameObject.Find("Player");

@@ -24,18 +24,10 @@ public class Lives : MonoBehaviour
     public void Damaged()
     {
         _currentLifes--;
-        switch (_currentLifes)
-        {
-            case 2:
-                _life1.SetActive(false);
-                break;
-            case 1:
-                _life2.SetActive(false);
-                break;
-            case 0:
-                _life3.SetActive(false);
-                break;
-        }
+        if (_currentLifes == 2) _life1.SetActive(false);
+        if (_currentLifes == 1) _life2.SetActive(false);
+        if (_currentLifes == 0) _life3.SetActive(false);
+
     }
 
 }
