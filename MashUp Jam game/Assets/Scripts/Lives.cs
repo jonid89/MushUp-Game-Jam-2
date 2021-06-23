@@ -13,6 +13,9 @@ public class Lives : MonoBehaviour
     void Start()
     {
         _currentLifes = 3;
+        _life3.GetComponent<Animator>().enabled = false;
+        _life2.GetComponent<Animator>().enabled = false;
+        _life1.GetComponent<Animator>().enabled = false;
     }
 
 
@@ -24,10 +27,17 @@ public class Lives : MonoBehaviour
     public void Damaged()
     {
         _currentLifes--;
-        if (_currentLifes == 2) _life1.SetActive(false);
-        if (_currentLifes == 1) _life2.SetActive(false);
-        if (_currentLifes == 0) _life3.SetActive(false);
-
+        if (_currentLifes == 2) StartCoroutine(LosingLife(_life3));
+        if (_currentLifes == 1) StartCoroutine(LosingLife(_life2));
+        if (_currentLifes == 0) _life1.SetActive(false);
     }
+
+    IEnumerator LosingLife(GameObject _losingLife)
+    {
+        _losingLife.GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(3);
+        _losingLife.SetActive(false);
+    }
+
 
 }
