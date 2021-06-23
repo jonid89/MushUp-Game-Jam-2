@@ -9,8 +9,11 @@ public class ShootingController : MonoBehaviour
 {
     [SerializeField] private Transform projectileOriginTransform;
     [SerializeField] private GameObject bullet;
-    private bool _canShoot = true;
+    [SerializeField] Joystick _joystick;
     
+    private bool _canShoot = true;
+    private Vector2 _directionInput;
+    private Vector2 _previousInput;
     private Camera _mainCamera;
     void Start()
     {
@@ -20,10 +23,19 @@ public class ShootingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        var aimDirection = (mousePosition - transform.position).normalized;
-        var angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0, 0, angle);
+        //var mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        //var aimDirection = (mousePosition - transform.position).normalized;
+    
+        _directionInput = new Vector2(_joystick.Horizontal, _joystick.Vertical);
+
+        if (_directionInput == new Vector2(0, 0) & _directionInput != _previousInput) {
+            var aimDirection = _previousInput.normalized;
+            var angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+            transform.eulerAngles = new Vector3(0, 0, angle);
+            Shoot();
+        }
+
+        _previousInput = _directionInput;
     }
 
     public void Shoot()

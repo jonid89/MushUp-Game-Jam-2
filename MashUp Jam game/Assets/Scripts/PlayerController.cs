@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private GameObject _gameOver;
     [SerializeField] private float _noDamageTime = 3f;
-    
+    [SerializeField] Joystick _joystick;
+
     private ShootingController _shootingController;
 
     private Vector2 _movementInput;
@@ -34,9 +35,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if(Input.GetMouseButtonDown(0))
-            _shootingController.Shoot();
+        //_movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        _movementInput = new Vector2(_joystick.Horizontal, _joystick.Vertical);
+        
+        if (Input.GetMouseButtonDown(0))
+            //_shootingController.Shoot();
 
         Debug.Log("Invincible timer: " + _invincibleTimer);
         if (_invincible)
