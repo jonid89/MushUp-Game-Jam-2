@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         {
             _invincibleTimer = _noDamageTime;
             _health = _health - 1;
-            FMODUnity.RuntimeManager.PlayOneShot("event:/loose_health"); 
+            FMODUnity.RuntimeManager.PlayOneShot("event:/loose_health_3"); 
            _invincible = true;
             _lives.GetComponent<Lives>().Damaged();
 

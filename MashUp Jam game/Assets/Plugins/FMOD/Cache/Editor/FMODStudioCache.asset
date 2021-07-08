@@ -38,11 +38,11 @@ MonoBehaviour:
   Path: FMOD/MashUp fmod project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637598927414689097
+  lastModified: 637612602260141724
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1052
+    Value: 1096
   Exists: 1
 --- !u!114 &-5895167033347383805
 MonoBehaviour:
@@ -114,12 +114,13 @@ MonoBehaviour:
   - {fileID: -6396969907136890176}
   - {fileID: 493835238228507}
   - {fileID: 5481558700156580092}
+  - {fileID: 2169588139585282787}
   EditorParameters: []
   MasterBanks:
   - {fileID: 879209629353485227}
   StringsBanks:
   - {fileID: -6105318420911946511}
-  stringsBankWriteTime: 637598927414689097
+  stringsBankWriteTime: 637612602260141724
   cacheVersion: 8
 --- !u!114 &493835238228507
 MonoBehaviour:
@@ -159,11 +160,11 @@ MonoBehaviour:
   Path: FMOD/MashUp fmod project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637598927414389704
+  lastModified: 637612602260081619
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1114624
+    Value: 1118336
   Exists: 1
 --- !u!114 &1374462527817697994
 MonoBehaviour:
@@ -188,6 +189,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 8000
+--- !u!114 &2169588139585282787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/loose_health_3
+  m_EditorClassIdentifier: 
+  Path: event:/loose_health_3
+  guid: 49d0a1f46d1f9540b1e52cba24a765e2
+  Banks:
+  - {fileID: 879209629353485227}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 396
 --- !u!114 &2893822470664986148
 MonoBehaviour:
   m_ObjectHideFlags: 0

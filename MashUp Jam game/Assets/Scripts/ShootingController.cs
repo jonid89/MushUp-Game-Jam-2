@@ -48,3 +48,4 @@ public class ShootingController : MonoBehaviour
 
     public void EnableShooting() => _canShoot = true;
 }
+
