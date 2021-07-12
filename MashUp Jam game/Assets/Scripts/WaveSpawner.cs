@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     private bool _allSpawned = false;
     private GameObject _enemyFound;
     private Transform _tr;
+    private bool _spawnShotDown = false;
 
     void Start()
     {
@@ -47,9 +48,13 @@ public class WaveSpawner : MonoBehaviour
             _spawnPosition = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
             _tr.position = _spawnPosition;
 
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Animator>().enabled = true;
+
             yield return new WaitForSeconds(_enemySpawnRate);
 
-            Instantiate(_enemyPrefab, _spawnPosition, Quaternion.identity);
+            if (_spawnShotDown == false) Instantiate(_enemyPrefab, _spawnPosition, Quaternion.identity);
+            _spawnShotDown = false;
 
             if (i == _enemiesToSpawn) _allSpawned = true;
         }
@@ -66,6 +71,13 @@ public class WaveSpawner : MonoBehaviour
         _waveAnnouncer.GetComponent<WaveAnnouncer>().SetWaveNumber(_waveNumber);
         FMODUnity.RuntimeManager.PlayOneShot("event:/new_wave");
         StartCoroutine(SpawnEnemies());
+    }
+
+    public void SpawnShotDown()
+    {
+        _spawnShotDown = true;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Animator>().enabled = false;
     }
 
 

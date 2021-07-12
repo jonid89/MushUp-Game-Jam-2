@@ -46,5 +46,15 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (other.CompareTag("WaveControl"))
+        {
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/shot_player");
+            other.GetComponent<WaveSpawner>().SpawnShotDown();
+            _player = GameObject.Find("Player");
+            _player.GetComponent<ShootingController>().EnableShooting();
+            Destroy(gameObject);
+        }
+
     }
 }
